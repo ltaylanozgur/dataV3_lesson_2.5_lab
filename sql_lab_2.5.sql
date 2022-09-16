@@ -53,7 +53,8 @@ SELECT DISTINCT release_year FROM sakila.film; -- unique value
 
 
 -- 10. Get all films with ARMAGEDDON in the title.
-SELECT * FROM sakila.film  WHERE title LIKE 'ARMAGEDDON%';
+SELECT * FROM sakila.film  WHERE title LIKE 'ARMAGEDDON%'; -- films that start with ARMAGEDDON
+SELECT * FROM sakila.film  WHERE title LIKE '%ARMAGEDDON%'; -- THE ANSWER: films that consist of ARMAGEDDON
 
 
 -- 11. Get all films which title ends with APOLLO.
