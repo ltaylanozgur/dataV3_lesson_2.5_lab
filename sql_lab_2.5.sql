@@ -22,7 +22,7 @@ SELECT CONCAT(LEFT(AVG(length)/60,1), ':' ,ROUND(AVG(length) % 60)) AS avg_movie
 FROM film; -- after conversion
 
 -- 5. How many distinct (different) actors' last names are there?
-SELECT COUNT(DISTINCT last_name) 
+SELECT COUNT(DISTINCT last_name) AS 'num_diff_actors'
 FROM sakila.actor;
 
 
@@ -53,8 +53,8 @@ SELECT DISTINCT release_year FROM sakila.film; -- unique value
 
 
 -- 10. Get all films with ARMAGEDDON in the title.
-SELECT * FROM sakila.film  WHERE title LIKE 'ARMAGEDDON%'; -- films that start with ARMAGEDDON
-SELECT * FROM sakila.film  WHERE title LIKE '%ARMAGEDDON%'; -- THE ANSWER: films that consist of ARMAGEDDON
+SELECT * FROM sakila.film WHERE title LIKE 'ARMAGEDDON%'; -- films that start with ARMAGEDDON
+SELECT * FROM sakila.film WHERE title LIKE '%ARMAGEDDON%'; -- THE ANSWER: films that consist of ARMAGEDDON
 
 
 -- 11. Get all films which title ends with APOLLO.
@@ -68,6 +68,10 @@ LIMIT 10;
 
 
 -- 13. How many films include Behind the Scenes content?
-SELECT COUNT(*) FROM sakila.film WHERE special_features like 'Behind the Scenes';
+SELECT * 
+FROM sakila.film 
+WHERE special_features 
+like '%%Behind the Scenes%%'; -- include Behind the Scenes content 
+-- 'Behind the Scenes' gives the special features containing only Behind the Scenes.
 
 
